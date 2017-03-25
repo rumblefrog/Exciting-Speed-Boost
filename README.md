@@ -1,4 +1,4 @@
-# Intensify Speed Boost [![Build Status](https://travis-ci.org/RumbleFrog/CommandsMenu.svg?branch=master)](https://travis-ci.org/RumbleFrog/CommandsMenu)
+# Intensify Speed Boost [![Build Status](https://travis-ci.org/RumbleFrog/Intensify-Speed-Boost.svg?branch=master)](https://travis-ci.org/RumbleFrog/Intensify-Speed-Boost)
 Boost player speed whenever they get a kill or on deathmatch
 
 
