@@ -1,5 +1,5 @@
 # Intensify Speed Boost [![Build Status](https://travis-ci.org/RumbleFrog/CommandsMenu.svg?branch=master)](https://travis-ci.org/RumbleFrog/CommandsMenu)
-Display a menu of commands parsed a simple config file
+Boost player speed whenever they get a kill or on deathmatch
 
 
 # ConVars
