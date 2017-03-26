@@ -25,7 +25,7 @@ SOFTWARE.
 
 
 #define PLUGIN_AUTHOR "Fishy"
-#define PLUGIN_VERSION "1.1.1"
+#define PLUGIN_VERSION "1.1.2"
 
 #include <sourcemod>
 #include <sdktools>
@@ -49,8 +49,9 @@ public void OnPluginStart()
 {
 	HookEvent("player_death", OnPlayerDeath, EventHookMode_Post);
 	HookEvent("object_destroyed", OnObjectDestroyed, EventHookMode_Post);
-	OnKillDuration = CreateConVar("sm_isb_onkillduration", "2.0", "Duration of speed boost given on kill", _, true, 0.0);
-	OnDestroyDuration = CreateConVar("sm_isb_ondestroyduration", "3.0", "Duration of speed boost given on destruction of buildings", _, true, 0.0);
+	CreateConVar("esb_version", PLUGIN_VERSION, "Exciting Speed Boost", FCVAR_SPONLY | FCVAR_REPLICATED | FCVAR_NOTIFY);
+	OnKillDuration = CreateConVar("esb_onkillduration", "2.0", "Duration of speed boost given on kill", FCVAR_REPLICATED | FCVAR_NOTIFY, true, 0.0);
+	OnDestroyDuration = CreateConVar("esb_ondestroyduration", "3.0", "Duration of speed boost given on destruction of buildings", FCVAR_REPLICATED | FCVAR_NOTIFY, true, 0.0);
 }
 
 public void OnPlayerDeath(Event event, const char[] name, bool dontBroadcast)

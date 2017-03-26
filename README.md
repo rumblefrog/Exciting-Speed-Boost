@@ -4,8 +4,8 @@ A simple plugin that boosts a player speed whenever they get a kill or destructi
 
 # ConVars
 
-- **sm_isb_onkillduration** [Default: 2.0] [Min: 0.0]
-- **sm_isb_ondestroyduration** [Default: 3.0] [Min: 0.0]
+- **esb_onkillduration** [Default: 2.0] [Min: 0.0]
+- **esb_ondestroyduration** [Default: 3.0] [Min: 0.0]
 
 If set to 0.0, it'd give infinite duration until the player dies.
 
