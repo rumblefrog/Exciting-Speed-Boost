@@ -4,6 +4,9 @@
 *.obj
 *.elf
 
+# Compiled SMX
+*.smx
+
 # Precompiled Headers
 *.gch
 *.pch
