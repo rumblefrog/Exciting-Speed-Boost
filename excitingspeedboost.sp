@@ -25,7 +25,7 @@ SOFTWARE.
 
 
 #define PLUGIN_AUTHOR "Fishy"
-#define PLUGIN_VERSION "1.1.0"
+#define PLUGIN_VERSION "1.1.1"
 
 #include <sourcemod>
 #include <sdktools>
@@ -38,7 +38,7 @@ ConVar OnDestroyDuration;
 
 public Plugin myinfo = 
 {
-	name = "Intensify Speed Boost",
+	name = "Exciting Speed Boost",
 	author = PLUGIN_AUTHOR,
 	description = "[TF2] Boost player speed whenever they get a kill or destruction of a building",
 	version = PLUGIN_VERSION,

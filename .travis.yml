@@ -17,19 +17,19 @@ before_script:
     - SMPACKAGE="https://www.sourcemod.net/smdrop/$SMVERSION/$SMLATEST"
     - wget $SMPACKAGE
     - tar -xzf $(basename "$SMPACKAGE")
-    - cp intensifyspeedboost.sp addons/sourcemod/scripting/
+    - cp excitingspeedboost.sp addons/sourcemod/scripting/
     - cd addons/sourcemod/scripting/
     - chmod +x spcomp
     - chmod +x compile.sh
     
 script: 
-    - ./compile.sh intensifyspeedboost.sp   
+    - ./compile.sh excitingspeedboost.sp   
   
 deploy:
   provider: releases
   api_key: "$githubkey"
   file: 
-    - "$TRAVIS_BUILD_DIR/addons/sourcemod/scripting/compiled/intensifyspeedboost.smx"
+    - "$TRAVIS_BUILD_DIR/addons/sourcemod/scripting/compiled/excitingspeedboost.smx"
   skip_cleanup: true
   on:
     tags: true
