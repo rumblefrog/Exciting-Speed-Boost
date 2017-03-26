@@ -1,5 +1,5 @@
 # Exciting Speed Boost [![Build Status](https://travis-ci.org/RumbleFrog/Exciting-Speed-Boost.svg?branch=master)](https://travis-ci.org/RumbleFrog/Exciting-Speed-Boost)
-Boost player speed whenever they get a kill or destruction of a building
+A simple plugin that boosts a player speed whenever they get a kill or destruction of a building.
 
 
 # ConVars
