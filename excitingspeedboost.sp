@@ -21,7 +21,7 @@
 
 
 #define PLUGIN_AUTHOR "Fishy"
-#define PLUGIN_VERSION "1.1.2"
+#define PLUGIN_VERSION "1.1.3"
 
 #include <sourcemod>
 #include <sdktools>
@@ -65,8 +65,6 @@ public void OnObjectDestroyed(Event event, const char[] name, bool dontBroadcast
 {
 	int iVictim = GetClientOfUserId(GetEventInt(event, "userid"));
 	int iAttacker = GetClientOfUserId(GetEventInt(event, "attacker"));
-	
-	PrintToChatAll("Destroyed an object");
 	
 	if (!IsValidClient(iVictim) || !IsValidClient(iAttacker, true))
 		return;
