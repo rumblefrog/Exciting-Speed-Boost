@@ -1,6 +1,6 @@
 /*
  *  Exciting Speed Boost - Boost player speed whenever they get a kill or on deathmatch
- *  
+ *
  *  Copyright (C) 2017 RumbleFrog
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@
 
 
 #define PLUGIN_AUTHOR "Fishy"
-#define PLUGIN_VERSION "1.1.3"
+#define PLUGIN_VERSION "1.1.4"
 
 #include <sourcemod>
 #include <sdktools>
@@ -32,7 +32,7 @@
 ConVar OnKillDuration;
 ConVar OnDestroyDuration;
 
-public Plugin myinfo = 
+public Plugin myinfo =
 {
 	name = "Exciting Speed Boost",
 	author = PLUGIN_AUTHOR,
@@ -45,6 +45,7 @@ public void OnPluginStart()
 {
 	HookEvent("player_death", OnPlayerDeath, EventHookMode_Post);
 	HookEvent("object_destroyed", OnObjectDestroyed, EventHookMode_Post);
+	HookEvent("ctf_flag_captured", OnFlagCaptured, EventHookMode_Post);
 	CreateConVar("esb_version", PLUGIN_VERSION, "Exciting Speed Boost", FCVAR_SPONLY | FCVAR_REPLICATED | FCVAR_NOTIFY);
 	OnKillDuration = CreateConVar("esb_onkillduration", "2.0", "Duration of speed boost given on kill", FCVAR_REPLICATED | FCVAR_NOTIFY, true, 0.0);
 	OnDestroyDuration = CreateConVar("esb_ondestroyduration", "3.0", "Duration of speed boost given on destruction of buildings", FCVAR_REPLICATED | FCVAR_NOTIFY, true, 0.0);
@@ -54,10 +55,10 @@ public void OnPlayerDeath(Event event, const char[] name, bool dontBroadcast)
 {
 	int iVictim = GetClientOfUserId(GetEventInt(event, "userid"));
 	int iAttacker = GetClientOfUserId(GetEventInt(event, "attacker"));
-	
+
 	if (!IsValidClient(iVictim) || !IsValidClient(iAttacker, true))
 		return;
-			
+
 	TF2_AddCondition(iAttacker, TFCond_SpeedBuffAlly, getDuration(OnKillDuration.FloatValue), 0);
 }
 
@@ -65,11 +66,24 @@ public void OnObjectDestroyed(Event event, const char[] name, bool dontBroadcast
 {
 	int iVictim = GetClientOfUserId(GetEventInt(event, "userid"));
 	int iAttacker = GetClientOfUserId(GetEventInt(event, "attacker"));
-	
+
 	if (!IsValidClient(iVictim) || !IsValidClient(iAttacker, true))
 		return;
-		
+
 	TF2_AddCondition(iAttacker, TFCond_SpeedBuffAlly, getDuration(OnDestroyDuration.FloatValue), 0);
+}
+
+public void OnFlagCaptured(Event event, const char[] name, bool dontBroadcast)
+{
+	int iTeam = view_as<TFTeam>(Event.GetInt("capping_team"));
+}
+
+stock void GiveTeamSpeed(TFTeam iTeam)
+{
+	for (int i = 0; i < MaxClients; i++)
+	{
+		// Assign speed to user if conditional matches
+	}
 }
 
 stock bool IsValidClient(int iClient, bool bAlive = false)
