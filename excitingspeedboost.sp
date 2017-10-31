@@ -75,7 +75,7 @@ public void OnObjectDestroyed(Event event, const char[] name, bool dontBroadcast
 
 public void OnFlagCaptured(Event event, const char[] name, bool dontBroadcast)
 {
-	int iTeam = view_as<TFTeam>(Event.GetInt("capping_team"));
+	int iTeam = view_as<TFTeam>(event.GetInt("capping_team"));
 }
 
 stock void GiveTeamSpeed(TFTeam iTeam)
